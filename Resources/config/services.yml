@@ -1,0 +1,11 @@
+parameters:
+    dark_redis.keeper.class: Dark\RedisKeeperBundle\Redis\Keeper
+
+services:
+     predis_client:
+         alias: snc_redis.default_client
+
+     dark_redis.keeper:
+        class: %dark_redis.keeper.class%
+        arguments:
+            - "@predis_client"
